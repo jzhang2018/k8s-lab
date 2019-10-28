@@ -20,7 +20,7 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
-  with_indexed_items::
+  with_items::
     - apt-transport-https
     - ca-certificates
     - curl
