@@ -1,0 +1,5 @@
+- name: Create k8s cluster
+  hosts: all
+  gather_facts: false
+  roles:
+    - cluster
