@@ -17,7 +17,15 @@
 - name: Install required system packages
   beconme: true
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: latest
     update_cache: yes
-  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+  with_indexed_items::
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - python3-pip
+    - virtualenv
+    - python3-setuptools
+
