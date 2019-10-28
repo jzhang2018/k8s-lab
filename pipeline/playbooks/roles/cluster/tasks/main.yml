@@ -1,2 +1,5 @@
 ---
 # tasks file for cluster
+-
+- include: kube-dependencies.yml
+#- include: something-else.yml
