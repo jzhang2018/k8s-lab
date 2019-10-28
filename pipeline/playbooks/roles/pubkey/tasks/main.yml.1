@@ -1,0 +1,32 @@
+---
+
+- name: hostname
+  command: hostname 
+  register: hh
+
+- debug: var=hh
+
+- debug:
+    msg: "{{ansible_user}}"
+
+#- name: make direcotry
+#  file:
+#    path: "/home/{{ansible_user}}/.ssh2"
+#    state: directory
+
+#- name: create empty file
+#  file:
+#    path: "/home/{{ansible_user}}/.ssh2/authorized_keys"
+#    state: touch
+
+#- name: push pubkey
+#  lineinfile:
+#    path: "/home/{{ansible_user}}/.ssh/authorized_keys"
+#    line: "{{ pubkey }}"
+
+#- name: test ping
+#  ping:
+
+
+
+

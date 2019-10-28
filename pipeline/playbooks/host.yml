@@ -1,0 +1,14 @@
+---
+
+- hosts: tester1
+  tasks:
+    - name: hostname
+      command: hostname 
+      #shell: ls -la 
+      register: hh
+
+    - debug: var=hh
+
+
+
+
