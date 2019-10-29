@@ -52,13 +52,14 @@
     filename: kubernetes
     repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
     state: present
-    
-- name: Add an Apt signing key for https://apt.kubernetes.io
-  become: true
-  apt_key:
-    id: 6A030B21BA07F4FB
-    url: https://apt.kubernetes.io
-    state: present
+    validate_certs: no
+
+#- name: Add an Apt signing key for https://apt.kubernetes.io
+#  become: true
+#  apt_key:
+#    id: 6A030B21BA07F4FB
+#    url: https://apt.kubernetes.io
+#    state: present
 
 
 
