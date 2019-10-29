@@ -46,4 +46,9 @@
   pip:
     name: docker
 
+- name: Add kubernates repository into sources list
+  apt_repository:
+    filename: kubernetes.list
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
 
