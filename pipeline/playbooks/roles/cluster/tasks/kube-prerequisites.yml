@@ -58,6 +58,14 @@
     path: /etc/systemd/system/docker.service.d
     state: directory
 
+- name: Enable Docker systemd service
+  become: true
+  systemd:
+    daemon_reload: yes
+    name: docker
+    state: started
+    enabled: yes
+
 - name: Add Kubernetes apt key
   become: true
   apt_key:
