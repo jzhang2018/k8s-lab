@@ -61,10 +61,9 @@
 
 - name: Remove swapfile from /etc/fstab
   mount:
-    name: "{{ item }}"
+    name: swap
     fstype: swap
     state: absent
-  loop: ['swap', 'none']
 
 - name: Disable swap
   command: swapoff -a
