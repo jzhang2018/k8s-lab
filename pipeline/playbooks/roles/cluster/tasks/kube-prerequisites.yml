@@ -49,15 +49,16 @@
 - name: Add Kubernetes apt key
   become: true
   apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    #url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    url: https://apt.kubernetes.io/doc/apt-key.gpg
     state: present
 
 - name: Add kubernates repository into sources list
   become: true
   apt_repository:
     filename: kubernetes
-    #repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
-    repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    #repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
     state: present
 
 - name: Remove swapfile from /etc/fstab
