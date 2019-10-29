@@ -34,7 +34,7 @@
     repo: deb https://download.docker.com/linux/ubuntu bionic stable
     state: present
 
-- name: Update apt and install docker-ce
+- name: Install docker-ce
   become: true
   apt:
     update_cache: yes
@@ -46,7 +46,7 @@
   pip:
     name: docker
 
-- name: Add an apt signing key for Kubernetes
+- name: Add Kubernetes apt key
   become: true
   apt_key:
     url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -56,7 +56,8 @@
   become: true
   apt_repository:
     filename: kubernetes
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    #repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
     state: present
 
 - name: Remove swapfile from /etc/fstab
