@@ -50,7 +50,7 @@
   become: true
   apt_repository:
     filename: kubernetes
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb [trusted=yes] https://apt.kubernetes.io/ kubernetes-xenial main
     state: present
     validate_certs: no
 
