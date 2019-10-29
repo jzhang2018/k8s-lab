@@ -6,13 +6,13 @@
     update_cache: yes
     cache_valid_time: 86400 #One day
 
-#- name: Install aptitude using apt
-#  become: true
-#  apt:
-#    name: aptitude
-#    state: latest
-#    update_cache: yes
-#    force_apt_get: yes
+- name: Install aptitude using apt
+  become: true
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: yes
+    force_apt_get: yes
 
 - name: Install required system packages
   become: true
@@ -46,50 +46,50 @@
   pip:
     name: docker
 
-- name: Add Kubernetes apt key
-  become: true
-  apt_key:
-    #url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    url: https://apt.kubernetes.io/doc/apt-key.gpg
-    state: present
-
-- name: Add kubernates repository into sources list
-  become: true
-  apt_repository:
-    filename: kubernetes
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
-    #repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
-    state: present
-
-- name: Remove swapfile from /etc/fstab
-  become: true
-  mount:
-    name: swap
-    fstype: swap
-    state: absent
-
-- name: Disable swap
-  become: true
-  command: swapoff -a
- # when: ansible_swaptotal_mb > 0
-
-- name: Install kubelet
-  become: true
-  apt:
-    name: kubelet
-    state: present
-    update_cache: yes
-
-- name: Install kubeadm
-  become: true
-  apt:
-    name: kubeadm
-    state: present
-    update_cache: yes
-
-- name: Install kubectl
-  become: true
-  apt:
-    name: kubectl
-    state: present
-    update_cache: yes
+#- name: Add Kubernetes apt key
+#  become: true
+#  apt_key:
+#    #url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+#    url: https://apt.kubernetes.io/doc/apt-key.gpg
+#    state: present
+#
+#- name: Add kubernates repository into sources list
+#  become: true
+#  apt_repository:
+#    filename: kubernetes
+#    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+#    #repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
+#    state: present
+#
+#- name: Remove swapfile from /etc/fstab
+#  become: true
+#  mount:
+#    name: swap
+#    fstype: swap
+#    state: absent
+#
+#- name: Disable swap
+#  become: true
+#  command: swapoff -a
+# # when: ansible_swaptotal_mb > 0
+#
+#- name: Install kubelet
+#  become: true
+#  apt:
+#    name: kubelet
+#    state: present
+#    update_cache: yes
+#
+#- name: Install kubeadm
+#  become: true
+#  apt:
+#    name: kubeadm
+#    state: present
+#    update_cache: yes
+#
+#- name: Install kubectl
+#  become: true
+#  apt:
+#    name: kubectl
+#    state: present
+#    update_cache: yes
