@@ -35,12 +35,14 @@
     state: present
 
 - name: Update apt and install docker-ce
+  become: true
   apt:
     update_cache: yes
     name: docker-ce
     state: latest
 
 - name: Install Docker Module for Python
+  become: true
   pip:
     name: docker
 
