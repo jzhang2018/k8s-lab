@@ -6,13 +6,13 @@
     update_cache: yes
     cache_valid_time: 86400 #One day
 
-- name: Install aptitude using apt
-  become: true
-  apt:
-    name: aptitude
-    state: latest
-    update_cache: yes
-    force_apt_get: yes
+#- name: Install aptitude using apt
+#  become: true
+#  apt:
+#    name: aptitude
+#    state: latest
+#    update_cache: yes
+#    force_apt_get: yes
 
 - name: Install required system packages
   become: true
