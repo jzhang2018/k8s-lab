@@ -52,4 +52,5 @@
     filename: kubernetes.list
     repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
     state: present
+    validate_certs: no
 
