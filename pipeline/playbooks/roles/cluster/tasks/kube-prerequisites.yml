@@ -52,6 +52,12 @@
     src: 'daemon.json'
     dest: '/etc/docker/daemon.json'
 
+- name: Create Docker service directory
+  become: true
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+
 - name: Add Kubernetes apt key
   become: true
   apt_key:
