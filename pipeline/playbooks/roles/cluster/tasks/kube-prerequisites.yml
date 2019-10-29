@@ -46,10 +46,15 @@
   pip:
     name: docker
 
+- name: Setup (copy) Docker daemon configuration file
+  become: true
+  copy:
+    src: 'daemon.json'
+    dest: '/etc/docker/daemon.json'
+
 - name: Add Kubernetes apt key
   become: true
   apt_key:
-    #url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     url: https://apt.kubernetes.io/doc/apt-key.gpg
     state: present
 
@@ -58,7 +63,6 @@
   apt_repository:
     filename: kubernetes
     repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
-    #repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
     state: present
 
 - name: Remove swapfile from /etc/fstab
@@ -93,3 +97,4 @@
     name: kubectl
     state: present
     update_cache: yes
+
