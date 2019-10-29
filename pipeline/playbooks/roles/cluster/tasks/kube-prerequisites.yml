@@ -67,7 +67,7 @@
 
 - name: Disable swap
   command: swapoff -a
-  when: ansible_swaptotal_mb > 0
+  when: {{ ansible_swaptotal_mb }} > 0
 
 - name: Install Kubernetes binaries - kubelet, kubeadm and kubectl
   become: true
