@@ -1,4 +1,4 @@
 ---
 # tasks file for master
 - name: Print out something...
-  debug: var={{ ansible_host }}
+  debug: var={{ masters.hosts[master].ansible_host }}
