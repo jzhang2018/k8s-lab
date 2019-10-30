@@ -27,6 +27,7 @@
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
+  validate_certs: no
 
 - name: Add Docker Repository
   become: true
@@ -71,6 +72,7 @@
   apt_key:
     url: https://apt.kubernetes.io/doc/apt-key.gpg
     state: present
+  validate_certs: no
 
 - name: Add kubernates repository into sources list
   become: true
