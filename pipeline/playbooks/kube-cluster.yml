@@ -1,11 +1,11 @@
-- name: Create k8s cluster - prerequisites
-  hosts: all, !testers
-  gather_facts: false
-  roles:
-    - cluster
+#- name: Create k8s cluster - prerequisites
+#  hosts: all, !testers
+#  gather_facts: false
+#  roles:
+#    - cluster
 
 - name: Create k8s cluster - init master
-  hosts: master # or mastets?
+  hosts: masters # or mastet?
   gather_facts: false
   roles:
     - master
