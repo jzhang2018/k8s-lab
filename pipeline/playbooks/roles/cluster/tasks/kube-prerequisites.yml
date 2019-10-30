@@ -112,3 +112,6 @@
     state: present
     update_cache: yes
 
+- name: Test kubeadm connetion 'pull kube images'
+  become: true
+  shell: kubeadm config images pull
