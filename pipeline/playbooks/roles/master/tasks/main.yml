@@ -12,9 +12,10 @@
 #  register: kube_token
 #  run_once: true
 
-- name: Save kubeadm token in master
-  set_fact:
-    kube_token_stdout: `kubeadm token generate`
+- name: Generate kubeadm token in master
+  command: kubeadm token generate
+  register: kube_token_stdout
+  run_once: true
 
 - name: Save kubeadm token in master
   set_fact:
