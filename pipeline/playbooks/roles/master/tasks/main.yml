@@ -7,21 +7,16 @@
 - name: Print out master IP address
   debug: var=master_ip
 
-#- name: Generate token from master
-#  command: kubeadm token generate
-#  register: kube_token
-#  run_once: true
+- name: Generate kube token in master
+  command: kubeadm token generate
+  register: kube_token_output
+  run_once: true
 
-#- name: Generate kubeadm token in master
-#  command: kubeadm token generate
-#  register: kube_token_stdout
-#  run_once: true
-
-- name: Create kubeadm token in master
+- name: Save kube token in master
   set_fact:
-    kube_token_: `kubeadm token generate`
+    kube_token_: "{{ kube_token_output.stdout }}"
 
-- name: Print out kube_token from master
+- name: Print out kube_token in master
   debug: var=kube_token
 
 ## kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.244.132
