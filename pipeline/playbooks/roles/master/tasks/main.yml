@@ -2,7 +2,7 @@
 # tasks file for master
 - name: Get master node IP address
   set_fact:
-    master_ip: "{{ hostvars[groups['master']].'ansible_host' }}"
+    master_ip: "{{ hostvars[groups['master'][0]].'ansible_host' }}"
  #   master_ip: "{{ item }}"
  # with_items: "{{ hostvars.master.ansible_host }}"
 
