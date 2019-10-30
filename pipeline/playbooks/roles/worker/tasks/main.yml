@@ -1,5 +1,5 @@
 ---
 # tasks file for worker
 
-- name: Print out kube_token from master
+- name: Print out kube_token from worker
   debug: var=kube_token.stdout
