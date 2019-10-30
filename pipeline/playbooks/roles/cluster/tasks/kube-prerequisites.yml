@@ -121,11 +121,3 @@
 
 - name: Print out test msg
   debug: var=testmsg
-
-- name: Generate token
-  command: kubeadm token generate
-  register: kube_token
-  run_once: true
-
-- name: Print out kube token
-  debug: var=kube_token
