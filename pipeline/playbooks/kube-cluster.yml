@@ -4,8 +4,14 @@
 #  roles:
 #    - cluster
 
-- name: Create k8s cluster - init master
+- name: Create k8s cluster - master init
   hosts: masters
   gather_facts: false
   roles:
     - master
+
+- name: Create k8s cluster - worker join
+  hosts: workers
+  gather_facts: false
+  roles:
+    - worker

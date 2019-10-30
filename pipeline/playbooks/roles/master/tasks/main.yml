@@ -12,8 +12,6 @@
   register: kube_token
   run_once: true
 
-- name: Print out kube token
-  debug: var=kube_token
 - name: Print out kube_token from master
   debug: var=kube_token.stdout
 
