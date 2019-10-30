@@ -14,7 +14,7 @@
 
 - name: Save kube token in master
   set_fact:
-    kube_token_: "{{ kube_token_output.stdout }}"
+    kube_token: "{{ kube_token_output.stdout }}"
 
 - name: Print out kube_token in master
   debug: var=kube_token
