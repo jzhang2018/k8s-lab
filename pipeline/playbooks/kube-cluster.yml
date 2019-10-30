@@ -1,5 +1,5 @@
 - name: Create k8s cluster - prerequisites
-  hosts: all!testers
+  hosts: all, !testers
   gather_facts: false
   roles:
     - cluster
