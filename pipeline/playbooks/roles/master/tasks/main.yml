@@ -1,4 +1,9 @@
 ---
 # tasks file for master
-- name: Print out something...
-  debug: var={{ masters.hosts[master].ansible_host }}
+- name: Get master node IP address
+  set_fact:
+    master_ip: "{{ item }}"
+  with_items: "{{  hostvars.master.ansible_host  }}"
+
+- name: Print out master IP address
+  debug: var=master_ip
