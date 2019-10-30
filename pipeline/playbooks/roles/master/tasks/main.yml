@@ -7,8 +7,15 @@
 - name: Print out master IP address
   debug: var=master_ip
 
-- name: Print out kube_token from master
+- name: Generate token from master
+  command: kubeadm token generate
+  register: kube_token
+  run_once: true
+
+- name: Print out kube token
   debug: var=kube_token
+- name: Print out kube_token from master
+  debug: var=kube_token.stdout
 
 ## kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.244.132
 #- name: Reset Kubernetes cluster master component
