@@ -19,7 +19,7 @@
 
 - name: Save kubeadm token in master
   set_fact:
-    kube_token: `kubeadm token generate`
+    kube_token: "`kubeadm token generate`"
 
 - name: Print out kube_token from master
   debug: var=kube_token
