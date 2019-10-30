@@ -1,8 +1,8 @@
-#- name: Create k8s cluster - prerequisites
-#  hosts: all, !testers
-#  gather_facts: false
-#  roles:
-#    - cluster
+- name: Create k8s cluster - prerequisites
+  hosts: all, !testers
+  gather_facts: false
+  roles:
+    - cluster
 
 - name: Create k8s cluster - init master
   hosts: masters # or mastet?
