@@ -5,7 +5,7 @@
     - cluster
 
 - name: Create k8s cluster - init master
-  hosts: masters # or mastet?
+  hosts: master # or mastets?
   gather_facts: false
   roles:
     - master
