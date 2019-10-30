@@ -19,7 +19,7 @@
 
 - name: Save kubeadm token in master
   set_fact:
-    kube_token: {{ kube_token_stdout }}.stdout
+    kube_token: {{ kube_token_stdout.stdout }}
 
 - name: Print out kube_token from master
   debug: var=kube_token
