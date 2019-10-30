@@ -115,3 +115,7 @@
 - name: Test kubeadm connetion 'pull kube images'
   become: true
   shell: kubeadm config images pull
+  register: testmsg
+
+- name: Print out test msg
+  debug: var=testmsg
