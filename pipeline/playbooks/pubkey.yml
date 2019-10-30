@@ -1,6 +1,6 @@
 - name: Copy ansible master pub key to remote hosts
-  #hosts: all, !testers
-  hosts: all
+  hosts: all, !testers
+  #hosts: all
   gather_facts: false
   roles:
     - pubkey 
