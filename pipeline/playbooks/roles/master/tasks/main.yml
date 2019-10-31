@@ -54,5 +54,6 @@
 - name: Setup kubeconfig for regular user - 2) copy /etc/kubernetes/admin.conf
   become: true
   copy:
-    src: '/etc/kubernetes/admin.conf'
+    remote_src: '/etc/kubernetes/admin.conf'
     dest: '$HOME/.kube/config'
+
