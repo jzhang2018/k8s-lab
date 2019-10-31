@@ -45,13 +45,14 @@
 - name: Print init master
   debug: var=init_cluster_master
 
-- name: Setup kubeconfig for regular user
+- name: Setup kubeconfig for regular user - 1) create $HOME/.kube directory
   become: true
-#  become_user: "{{ ansible_user }}"
-#  become_method: su
-  command: "{{ item }}"
-  with_items:
-   - mkdir -p $HOME/.kube
-   - cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-   - chown $(id -u):$(id -g) $HOME/.kube/config
+  file:
+    path: $HOME/.kube
+    state: directory
 
+- name: Setup kubeconfig for regular user - 2) copy /etc/kubernetes/admin.conf
+  become: true
+  copy:
+    src: '/etc/kubernetes/admin.conf'
+    dest: '$HOME/.kube/config'
