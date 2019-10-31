@@ -11,8 +11,8 @@
   roles:
     - master
 
-#- name: Create k8s cluster - worker join
-#  hosts: workers
-#  gather_facts: false
-#  roles:
-#    - worker
+- name: Create k8s cluster - worker join
+  hosts: workers
+  gather_facts: false
+  roles:
+    - worker
