@@ -92,6 +92,7 @@
   become: true
   command: swapoff -a
  # when: ansible_swaptotal_mb > 0
+ # TODO: when to call it? At creation time?
 
 - name: Install kubelet
   become: true
