@@ -14,10 +14,10 @@
 
 - name: Save kube token in master
   set_fact:
-    kube_token: "{{ kube_token_output.stdout }}"
+    kubeadm_token: "{{ kube_token_output.stdout }}"
 
 - name: Print out kube_token in master
-  debug: var=kube_token
+  debug: var=kubeadm_token
 
 ## kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.244.132
 #- name: Reset Kubernetes cluster master component
