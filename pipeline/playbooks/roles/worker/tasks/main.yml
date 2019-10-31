@@ -8,4 +8,4 @@
 - name: test2
   debug:
     #msg: "the token: {{ kubeadm_token }}"
-    msg: "the token: {{ hostvars[masters]['kubeadm_token'] }}"
+    msg: "the token: {{ hostvars[master]['kubeadm_token'] }}"
