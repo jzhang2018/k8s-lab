@@ -17,7 +17,6 @@
   debug: var=master_ip
 
 - name: Print out master hostname
-  gather_facts: true
   debug: var="{{ inventory_hostname }}"
 
 - name: Generate kube token in master
