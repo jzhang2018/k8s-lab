@@ -4,3 +4,7 @@
 - name: test
   debug:
     msg: 'this is a test'
+
+- name: test2
+  debug:
+    msg: "the token: {{ kubeadm_token }}"
