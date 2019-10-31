@@ -16,6 +16,9 @@
 - name: Print out master IP address
   debug: var=master_ip
 
+- name: Print out master name
+  debug: var="{{ hostvars[groups['masters'][0]]}}"
+
 - name: Generate kube token in master
   command: kubeadm token generate
   register: kube_token_output
@@ -29,14 +32,15 @@
   debug: var=kubeadm_token
 
 ## kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.244.132
-- name: Init Kubernetes cluster - master node
-  #when: reset_cluster_master is succeeded
-  become: true
-  shell: |
-    kubeadm init --pod-network-cidr 10.244.0.0/16 \
-                 --token {{ kubeadm_token }} \
-                 --apiserver-advertise-address {{ master_ip }}
-  register: init_cluster_master
-
-- name: Print init master
-  debug: var=init_cluster_master
+#- name: Init Kubernetes cluster - master node
+#  #when: reset_cluster_master is succeeded
+#  become: true
+#  shell: |
+#    kubeadm init --pod-network-cidr 10.244.0.0/16 \
+#                 --token {{ kubeadm_token }} \
+#                 --apiserver-advertise-address {{ master_ip }} \
+#                 --node-name k8s-master
+#  register: init_cluster_master
+#
+#- name: Print init master
+#  debug: var=init_cluster_master
