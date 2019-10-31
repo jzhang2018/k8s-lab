@@ -17,7 +17,7 @@
   debug: var=master_ip
 
 - name: Print out master name
-  debug: var="{{ hostvars[groups['masters'][0]]}}"
+  debug: var="{{ inventory_hostname }}"
 
 - name: Generate kube token in master
   command: kubeadm token generate
