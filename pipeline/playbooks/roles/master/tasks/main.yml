@@ -12,13 +12,9 @@
   register: kube_token_output
   run_once: true
 
-#- name: Save kube token in master
-#  set_fact:
-#    kubeadm_token: "{{ kube_token_output.stdout }}"
-
 - name: Save kube token in master
   set_fact:
-    kubeadm_token: TEST
+    kubeadm_token: "{{ kube_token_output.stdout }}"
 
 - name: Print out kube_token in master
   debug: var=kubeadm_token

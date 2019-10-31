@@ -1,4 +1,4 @@
 ---
 # defaults file for worker
 - name: Print out original kubeadm_token in worker
-  debug: msg="Color is {{ kubeadm_token }}"
+  debug: msg='token is {{ hostvars.masters.kubeadm_token }}'
