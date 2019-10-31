@@ -7,3 +7,6 @@
 
 - name: Print out kubeadm_token in worker
   debug: var=kubeadm_token
+
+- name: Print out worker hostname
+  debug: var=ansible_hostname
