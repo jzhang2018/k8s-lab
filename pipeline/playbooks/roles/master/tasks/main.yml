@@ -7,6 +7,9 @@
 - name: Print out master IP address
   debug: var=master_ip
 
+- name: Print out original kubeadm_token in master
+  debug: var=kubeadm_token
+
 - name: Generate kube token in master
   command: kubeadm token generate
   register: kube_token_output
