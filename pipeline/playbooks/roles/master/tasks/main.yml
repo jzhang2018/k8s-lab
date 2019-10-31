@@ -56,5 +56,5 @@
   copy:
     src: '/etc/kubernetes/admin.conf'
     remote_src: yes
-    dest: '/home/{{ ansible_user }} /.kube/config'
+    dest: '/home/{{ ansible_user }}/.kube/config'
 
