@@ -2,10 +2,10 @@
 # defaults file for worker
 - name: Get master node IP address
   set_fact:
-    master_ip: "{{ hostvars[groups['masters'][0]].ansible_host}}"
+    master_ip2: "{{ hostvars[groups['masters'][0]].ansible_host}}"
 
 - name: Print out master IP address
-  debug: var=master_ip
+  debug: var=master_ip2
 
 #- name: Print out original kubeadm_token in worker
 #  debug: msg='token is {{ hostvars.masters.kubeadm_token }}'
