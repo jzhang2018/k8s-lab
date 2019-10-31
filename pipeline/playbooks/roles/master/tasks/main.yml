@@ -17,7 +17,7 @@
   debug: var=master_ip
 
 - name: Print out master hostname
-  debug: var="{{ inventory_hostname }}"
+  debug: var="{{ ansible_hostname }}"
 
 - name: Generate kube token in master
   command: kubeadm token generate
