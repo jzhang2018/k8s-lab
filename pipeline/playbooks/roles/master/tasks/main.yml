@@ -8,7 +8,7 @@
 
 - name: Print reset master
   debug: var=reset_cluster_master
-  
+
 - name: Get master node IP address
   set_fact:
     master_ip: "{{ hostvars[groups['masters'][0]].ansible_host}}"
@@ -31,10 +31,11 @@
 ## kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.244.132
 - name: Init Kubernetes cluster - master node
   #when: reset_cluster_master is succeeded
+  become: true
   shell: |
     kubeadm init --pod-network-cidr 10.244.0.0/16 \
                  --token {{ kubeadm_token }} \
-                 --apiserver-advertise-address {{ master_ip }} \
+                 --apiserver-advertise-address {{ master_ip }}
   register: init_cluster_master
 
 - name: Print init master
