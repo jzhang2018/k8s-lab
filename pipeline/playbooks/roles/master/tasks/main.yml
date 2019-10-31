@@ -48,7 +48,7 @@
 - name: Setup kubeconfig for regular user - 1) create $HOME/.kube directory
   become: true
   file:
-    path: $HOME/.kube
+    path: /home/{{ ansible_user }} /.kube
     state: directory
 
 - name: Setup kubeconfig for regular user - 2) copy /etc/kubernetes/admin.conf
@@ -56,5 +56,5 @@
   copy:
     src: '/etc/kubernetes/admin.conf'
     remote_src: yes
-    dest: '$HOME/.kube/config'
+    dest: '/home/{{ ansible_user }} /.kube/config'
 
