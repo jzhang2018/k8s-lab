@@ -47,8 +47,8 @@
 
 - name: Setup kubeconfig for regular user
   become: true
-  become_user: "{{ ansible_user }}"
-  become_method: su
+#  become_user: "{{ ansible_user }}"
+#  become_method: su
   command: "{{ item }}"
   with_items:
    - mkdir -p $HOME/.kube
