@@ -4,9 +4,11 @@
 #  gather_facts: false
 #  roles:
 #    - prerequisites
-- name: debug565656565
+
+- name: debug msg
   hosts: all
-  debug: var=kubeadm_token
+  tasks:
+    - debug: var=kubeadm_token
 
 - name: Create k8s cluster - master init
   hosts: masters
