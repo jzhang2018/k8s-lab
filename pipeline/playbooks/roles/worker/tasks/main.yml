@@ -1,2 +1,6 @@
 ---
 # tasks file for worker
+
+- name: test
+  debug:
+    msg: 'this is a test'
