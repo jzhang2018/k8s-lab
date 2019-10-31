@@ -1,4 +1,0 @@
----
-# tasks file for cluster
--
-- include: kube-prerequisites.yml

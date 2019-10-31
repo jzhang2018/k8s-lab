@@ -1,6 +1,0 @@
----
-# tasks file for worker
-
-- name: Print out kube_token from worker
-  debug:
-    msg: "{{ kube_token }}"

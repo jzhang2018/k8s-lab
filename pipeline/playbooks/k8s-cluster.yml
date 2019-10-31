@@ -2,16 +2,10 @@
   hosts: all, !testers
   gather_facts: false
   roles:
-    - cluster
+    - prerequisites
 
-- name: Create k8s cluster - master init
-  hosts: masters
+- name: Create k8s cluster - master init and worker join
+  hosts: all, !testers
   gather_facts: false
   roles:
-    - master
-
-- name: Create k8s cluster - worker join
-  hosts: workers
-  gather_facts: false
-  roles:
-    - worker
+    - creation
