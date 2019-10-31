@@ -1,5 +1,4 @@
 ---
 # defaults file for worker
 - name: Print out kubeadm_token in worker
-  debug:
-    msg: {{ kubeadm_token }}
+  debug: var=kubeadm_token
