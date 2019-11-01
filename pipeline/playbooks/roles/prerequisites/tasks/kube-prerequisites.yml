@@ -70,7 +70,8 @@
   become: true
   apt_repository:
     filename: kubernetes
-    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    #repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb https://packages.cloud.google.com/ kubernetes-xenial main
     state: present
     update_cache: yes
 
