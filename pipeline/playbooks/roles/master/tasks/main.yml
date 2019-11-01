@@ -55,15 +55,3 @@
   shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
   register: installPodNetwork
 
-- name: Print out install flannel output
-  debug: var=installPodNetwork
-
-- name: Confirm by checking CoreDNS pod is Running
-  become: yes
-  become_user: '{{ ansible_user }}'
-  shell:  kubectl get pods -n kube-system
-  #shell: kubectl get namespaces
-  register: getPods
-
-- name: Print out Pod confirmation
-  debug: var=getPods
