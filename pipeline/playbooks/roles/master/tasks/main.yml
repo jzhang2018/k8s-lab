@@ -9,18 +9,6 @@
 - name: Print reset master
   debug: var=reset_cluster_master
 
-#- name: Generate kube token in master
-#  command: kubeadm token generate
-#  register: kube_token_output
-#  run_once: true
-#
-#- name: Save kube token in master
-#  set_fact:
-#    kubeadm_token: "{{ kube_token_output.stdout }}"
-
-#- name: Print out kube_token in master
-#  debug: var=kubeadm_token
-
 - name: Init Kubernetes cluster - master node
   #when: reset_cluster_master is succeeded
   become: true
