@@ -70,7 +70,7 @@
 - name: Add Kubernetes apt key
   become: true
   apt_key:
-    url: https://apt.kubernetes.io/doc/apt-key.gpg
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
     validate_certs: no
 
@@ -78,8 +78,8 @@
   become: true
   apt_repository:
     filename: kubernetes
-    #repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
-    repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    #repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
     state: present
   #TODO: use inventory for url
 

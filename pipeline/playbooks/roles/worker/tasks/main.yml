@@ -13,3 +13,4 @@
 
 - name: Print out worker IP address
   debug: var=ansible_host
+
