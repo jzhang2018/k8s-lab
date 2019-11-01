@@ -61,8 +61,8 @@
 - name: Confirm by checking CoreDNS pod is Running
   become: yes
   become_user: '{{ ansible_user }}'
-  #shell:  kubectl get pods --all-namespaces
-  shell: kubectl get namespaces
+  shell:  kubectl get pods -n kube-system
+  #shell: kubectl get namespaces
   register: getPods
 
 - name: Print out Pod confirmation
