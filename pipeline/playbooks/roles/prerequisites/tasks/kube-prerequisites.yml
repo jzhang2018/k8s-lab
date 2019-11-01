@@ -70,8 +70,7 @@
 - name: Add Kubernetes apt key
   become: true
   apt_key:
-    #url: https://apt.kubernetes.io/doc/apt-key.gpg
-    url: https://packages.cloud.google.com/doc/apt-key.gpg
+    url: https://apt.kubernetes.io/doc/apt-key.gpg
     state: present
     validate_certs: no
 
