@@ -37,7 +37,7 @@
 - name: Setup kubeconfig for regular user - 1) create $HOME/.kube directory
   become: true
   file:
-    path: /home/{{ ansible_user }} /.kube
+    path: '/home/{{ ansible_user }}/.kube'
     state: directory
 
 - name: Setup kubeconfig for regular user - 2) copy /etc/kubernetes/admin.conf and 3) change owner/group
