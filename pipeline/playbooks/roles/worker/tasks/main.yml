@@ -15,7 +15,7 @@
   debug: var=join_command
 
 - name: Worker join cluster
-  shell: "{{ join_command }}
+  shell: "{{ join_command }}"
   register: join_cluser_worker
 
 - name: Print join cluster
