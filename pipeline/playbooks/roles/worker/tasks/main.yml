@@ -1,12 +1,12 @@
 ---
 # tasks file for worker
 
-- name: Get kubeadm token which is generated from master
-  set_fact:
-    kubeadm_token:  "{{ hostvars['master']['kubeadm_token'] }}"
-
-- name: Print out kubeadm_token in worker
-  debug: var=kubeadm_token
+#- name: Get kubeadm token which is generated from master
+#  set_fact:
+#    kubeadm_token:  "{{ hostvars['master']['kubeadm_token'] }}"
+#
+#- name: Print out kubeadm_token in worker
+#  debug: var=kubeadm_token
 
 - name: Print out worker hostname
   debug: var=ansible_hostname

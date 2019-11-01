@@ -9,24 +9,23 @@
 - name: Print reset master
   debug: var=reset_cluster_master
 
-- name: Generate kube token in master
-  command: kubeadm token generate
-  register: kube_token_output
-  run_once: true
+#- name: Generate kube token in master
+#  command: kubeadm token generate
+#  register: kube_token_output
+#  run_once: true
+#
+#- name: Save kube token in master
+#  set_fact:
+#    kubeadm_token: "{{ kube_token_output.stdout }}"
 
-- name: Save kube token in master
-  set_fact:
-    kubeadm_token: "{{ kube_token_output.stdout }}"
-
-- name: Print out kube_token in master
-  debug: var=kubeadm_token
+#- name: Print out kube_token in master
+#  debug: var=kubeadm_token
 
 - name: Init Kubernetes cluster - master node
   #when: reset_cluster_master is succeeded
   become: true
   shell: |
     kubeadm init --pod-network-cidr 10.244.0.0/16 \
-                 --token {{ kubeadm_token }} \
                  --apiserver-advertise-address {{ ansible_host }} \
                  --node-name {{ ansible_hostname }}
   register: init_cluster_master
