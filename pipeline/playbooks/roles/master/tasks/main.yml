@@ -55,3 +55,10 @@
   shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
   register: installPodNetwork
 
+- name: Generate join command
+  command: kubeadm token create --print-join-command
+  register: join_command
+
+- name: Printout joinn command in master
+  debug: var=join_command
+
