@@ -14,7 +14,7 @@
     master_ip: "{{ hostvars[groups['masters'][0]].ansible_host}}"
 
 - name: Print out master IP address
-  debug: var=master_ip
+  debug: var=ansible_host
 
 - name: Print out master hostname
   debug: var=ansible_hostname
