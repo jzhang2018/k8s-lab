@@ -51,12 +51,12 @@
 
 - name: Install Pod network - using flannel
   become: yes
-  become_user: {{ ansible_user }}
+  become_user: '{{ ansible_user }}'
   shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/a70459be0084506e4ec919aa1c114638878db11b/Documentation/kube-flannel.yml
 
 - name: Confirm by checking CoreDNS pod is Running
   become: yes
-  become_user: {{ ansible_user }}
+  become_user: '{{ ansible_user }}'
   shell:  kubectl get pods --all-namespaces
   register: getPods
 
