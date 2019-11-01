@@ -6,13 +6,13 @@
     update_cache: yes
     cache_valid_time: 86400 #One day
 
-- name: Install aptitude using apt
-  become: true
-  apt:
-    name: aptitude
-    state: latest
-    update_cache: yes
-    force_apt_get: yes
+#- name: Install aptitude using apt
+#  become: true
+#  apt:
+#    name: aptitude
+#    state: latest
+#    update_cache: yes
+#    force_apt_get: yes
 
 - name: Install required system packages
   become: true
@@ -78,10 +78,10 @@
   become: true
   apt_repository:
     filename: kubernetes
-    repo: deb [trusted=yes] https://apt.kubernetes.io/ kubernetes-xenial main
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
     #repo: deb http://packages.cloud.google.com/apt/ kubernetes-xenial main
     state: present
-  #TODO: use inventory for url
+    update_cache: yes
 
 - name: Remove swapfile from /etc/fstab
   become: true
