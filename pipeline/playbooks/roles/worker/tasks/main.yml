@@ -16,7 +16,7 @@
 
 - name: Get join_command which is generated from master
   set_fact:
-    kubeadm_token:  "{{ hostvars['master']['join_command'] }}"
+    join_command: "{{ hostvars['master']['join_command'] }}"
 
 - name: Print out join_command in worker
   debug: var=join_command
