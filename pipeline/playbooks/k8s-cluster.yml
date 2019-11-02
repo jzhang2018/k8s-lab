@@ -20,6 +20,7 @@
     - worker
 
 - name: Wait for 30 sec
+  hosts: all, !testers
   wait_for:
     timeout: 30 # seconds
 
