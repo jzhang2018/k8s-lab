@@ -16,7 +16,7 @@
   debug: var=join_command
 
 - name: Worker join cluster
- # become: yes
+  become: yes
   shell: "{{ join_command }}"
   register: join_cluser_worker
 
