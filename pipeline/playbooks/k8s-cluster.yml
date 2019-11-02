@@ -20,10 +20,9 @@
 
 - hosts: masters
   tasks:
-    - name: all pods
-      k8s_facts:
-        kind: Pod
-      register: pod_list
-      
+    - name: all nodes
+      shell: kubectl get nodes
+      register: node_list
+
     - name: print
-      debug: var=pod_list
+      debug: var=node_list
