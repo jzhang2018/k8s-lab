@@ -23,8 +23,8 @@
   hosts: masters
   gather_facts: false
   pre_tasks:
-    - name: Wait for 30 sec...
+    - name: Wait for 15 sec...
       wait_for:
-        timeout: 30
+        timeout: 15
   roles:
     - verify
