@@ -1,3 +1,4 @@
+---
 
 - name: Create k8s cluster - prerequisites
   hosts: all, !testers
@@ -17,7 +18,8 @@
   roles:
     - worker
 
-- hosts: masters
+- name: Verification
+  hosts: masters
   become: true
   tasks:
     - name: Get_All_Pods
