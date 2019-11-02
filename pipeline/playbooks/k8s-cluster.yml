@@ -18,15 +18,13 @@
   roles:
     - worker
 
-- hosts: tester1
+- hosts: masters
   tasks:
-    - name: hostname
-      command: hostname
-      #shell: ls -la
-      register: hh
+    - name: all pods
+      k8s_info:
+        kind: Pod
+        register: pod_list
 
-    - debug: var=hh
-      
 #- hosts: masters
 #  become: true
 #  tasks:
