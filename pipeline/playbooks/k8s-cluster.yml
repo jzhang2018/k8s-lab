@@ -6,7 +6,7 @@
   roles:
     - prerequisites
 
-- name: Create k8s cluster - master init and verification
+- name: Create k8s cluster - master init
   hosts: masters
   gather_facts: true
   roles:
@@ -18,6 +18,12 @@
   gather_facts: true
   roles:
     - worker
+
+- name: Create k8s cluster - verification
+  hosts: masters
+  gather_facts: true
+  roles:
+    - verify
 
 #- hosts: masters
 #  tasks:
