@@ -16,3 +16,14 @@
   gather_facts: true
   roles:
     - worker
+
+- hosts: masters
+  become: true
+  tasks:
+    - name: Get_All_Pods
+      k8s_info:
+        kind: Pod
+      register: pod_list
+
+    - name: Print out all pods
+      debug: var=pod_list
