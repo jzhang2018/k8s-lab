@@ -31,7 +31,7 @@
 - hosts: masters
   become: true
   tasks:
-    - name: Get_All_Pods
+    - name: Get All Pods
       k8s_info:
         kind: Pod
       register: pod_list
