@@ -1,11 +1,12 @@
 ---
 # tasks file for worker
 
-- name: Print out worker hostname
-  debug: var=ansible_hostname
+- name: Reset Kubernetes component in worker
+  shell: "kubeadm reset --force"
+  register: reset_cluster_worker
 
-- name: Print out worker IP address
-  debug: var=ansible_host
+- name: Print reset worker
+  debug: var=reset_cluster_worker
 
 - name: Get join_command which is generated from master
   set_fact:
@@ -15,6 +16,7 @@
   debug: var=join_command
 
 - name: Worker join cluster
+ # become: yes
   shell: "{{ join_command }}"
   register: join_cluser_worker
 
