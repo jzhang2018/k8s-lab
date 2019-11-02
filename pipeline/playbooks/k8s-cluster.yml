@@ -18,8 +18,17 @@
   roles:
     - worker
 
-- name: Verification
-  hosts: masters
+#- hosts: tester1
+#  tasks:
+#    - name: hostname
+#      command: hostname
+#      #shell: ls -la
+#      register: hh
+#
+#    - debug: var=hh
+#      -
+
+- hosts: masters
   become: true
   tasks:
     - name: Get_All_Pods
