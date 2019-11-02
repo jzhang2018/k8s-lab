@@ -21,7 +21,7 @@
 - hosts: masters
   tasks:
     - name: all pods
-      k8s_info:
+      this_day:
         kind: Pod
         register: pod_list
 
