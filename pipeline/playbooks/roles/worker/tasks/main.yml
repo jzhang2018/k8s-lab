@@ -20,11 +20,11 @@
   become: yes
   shell: "{{ join_command }}"
   register: join_cluser_worker
- # notify: Get_All_Pods
+  notify:
 
 - name: Print join cluster
   debug: var=join_cluser_worker
 
-
+-
 
 

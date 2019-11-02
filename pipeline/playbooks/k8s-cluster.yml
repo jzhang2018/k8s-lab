@@ -6,11 +6,12 @@
   roles:
     - prerequisites
 
-- name: Create k8s cluster - master init
+- name: Create k8s cluster - master init and verification
   hosts: masters
   gather_facts: true
   roles:
     - master
+    - verify
 
 - name: Create k8s cluster - worker join
   hosts: workers
@@ -18,11 +19,11 @@
   roles:
     - worker
 
-- hosts: masters
-  tasks:
-    - name: all nodes
-      shell: kubectl get nodes
-      register: node_list
-
-    - name: print
-      debug: var=node_list
+#- hosts: masters
+#  tasks:
+#    - name: all nodes
+#      shell: kubectl get nodes
+#      register: node_list
+#
+#    - name: print
+#      debug: var=node_list

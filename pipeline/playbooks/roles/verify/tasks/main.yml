@@ -1,2 +1,9 @@
 ---
 # tasks file for verify
+
+- name: Get all nodes
+  shell: kubectl get nodes
+  register: node_list
+
+- name: Print all nodes
+  debug: var=node_list
