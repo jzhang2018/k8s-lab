@@ -25,7 +25,6 @@
   pre_tasks:
     - name: Wait for 30 sec...
       wait_for:
-        host: '{{ ansible_host }}'
-        delay: 30
+        timeout: 30
   roles:
     - verify
