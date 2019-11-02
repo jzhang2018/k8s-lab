@@ -25,15 +25,7 @@
   pre_tasks:
     - name: Wait for 30 sec...
       wait_for:
+        host: '{{ ansible_host }}'
         delay: 30
   roles:
     - verify
-
-#- hosts: masters
-#  tasks:
-#    - name: all nodes
-#      shell: kubectl get nodes
-#      register: node_list
-#
-#    - name: print
-#      debug: var=node_list
