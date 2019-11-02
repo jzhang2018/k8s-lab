@@ -11,7 +11,6 @@
   gather_facts: true
   roles:
     - master
-    - verify
 
 - name: Create k8s cluster - worker join
   hosts: workers
