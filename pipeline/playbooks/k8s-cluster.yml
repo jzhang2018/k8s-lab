@@ -23,6 +23,7 @@
     - name: all pods
       k8s_facts:
         kind: Pod
-        register: pod_list
+      register: pod_list
+      
     - name: print
       debug: var=pod_list
