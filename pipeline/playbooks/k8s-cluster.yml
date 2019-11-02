@@ -21,17 +21,8 @@
 - hosts: masters
   tasks:
     - name: all pods
-      this_day:
+      k8s_facts:
         kind: Pod
         register: pod_list
-
-#- hosts: masters
-#  become: true
-#  tasks:
-#    - name: Get All Pods
-#      k8s_info:
-#        kind: Pod
-#      register: pod_list
-#
-#    - name: Print out all pods
-#      debug: var=pod_list
+    - name: print
+      debug: var=pod_list
