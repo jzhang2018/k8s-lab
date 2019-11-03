@@ -1,4 +1,16 @@
 ---
+- name: Remove swapfile from /etc/fstab
+  become: true
+  mount:
+    name: swap
+    fstype: swap
+    state: absent
+
+- name: Disable swap
+  become: true
+  command: swapoff -a
+ # when: ansible_swaptotal_mb > 0
+
 - name: Update and upgrade apt packages
   become: true
   apt:
@@ -24,7 +36,8 @@
 - name: Add Docker Repository
   become: true
   apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    #repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
     state: present
 
 - name: Install docker-ce
@@ -75,19 +88,6 @@
     state: present
     update_cache: yes
 
-- name: Remove swapfile from /etc/fstab
-  become: true
-  mount:
-    name: swap
-    fstype: swap
-    state: absent
-
-- name: Disable swap
-  become: true
-  command: swapoff -a
- # when: ansible_swaptotal_mb > 0
- # TODO: when to call it? At creation time?
-
 - name: Install kubelet
   become: true
   apt:
@@ -108,6 +108,10 @@
     name: kubectl
     state: present
     update_cache: yes
+
+- name: Hold packages not to be upgraded automatically
+  become: true
+  shell: apt-mark hold kubelet kubeadm kubectl
 
 - name: Test kubeadm connetion 'pull kube images'
   become: true
