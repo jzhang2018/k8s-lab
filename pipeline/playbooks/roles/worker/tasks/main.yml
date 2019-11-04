@@ -17,10 +17,10 @@
   debug: var=join_command
 
 - name: Worker join cluster
+  when: reset_cluster_worker is succeeded
   become: yes
   shell: "{{ join_command }}"
   register: join_cluser_worker
-  notify:
 
 - name: Print join cluster
   debug: var=join_cluser_worker
